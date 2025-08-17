@@ -1,0 +1,39 @@
+body {
+  background-color: black;
+  color: #99ff66; /* vomit-green */
+  font-family: 'Libre Baskerville', serif;
+  padding: 2em;
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 2em;
+}
+
+.byline {
+  font-style: italic;
+  color: #ccff99;
+}
+
+article {
+  margin-bottom: 3em;
+  border-top: 1px solid #99ff66;
+  padding-top: 1em;
+}
+
+#editor {
+  background-color: #111;
+  border: 1px solid #99ff66;
+  padding: 1em;
+  margin-bottom: 2em;
+  font-family: 'Libre Baskerville', serif;
+  color: #ccff99;
+}
+
+#editor input, #editor textarea {
+  width: 100%;
+  background-color: #222;
+  color: #99ff66;
+  border: 1px solid #99ff66;
+  font-family: 'Libre Baskerville', serif;
+}

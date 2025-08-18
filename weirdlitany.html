@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>A Weird Litany</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Libre Baskerville', serif;
+      background: #181820;
+      color: #e0e0e0;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 40px;
+      color: #00aaff;
+      text-shadow: 0 0 10px #00aaff88;
+    }
+    .litany-container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 30px;
+      background: #222244;
+      border-radius: 15px;
+      box-shadow: 0 0 30px #00aaff44;
+    }
+    .figures-list {
+      display: flex;
+      gap: 40px;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+    .column {
+      flex: 1;
+      min-width: 200px;
+    }
+    .figure-name {
+      display: block;
+      padding: 10px 0;
+      cursor: pointer;
+      color: #00ffaa;
+      font-size: 1.1em;
+      border-bottom: 1px solid #444;
+      transition: background 0.2s;
+    }
+    .figure-name:hover {
+      background: #003355;
+      color: #fff;
+    }
+    #figure-box {
+      margin-top: 30px;
+      background: #181830;
+      border-radius: 10px;
+      padding: 20px;
+      min-height: 80px;
+      color: #ff00ff;
+      font-size: 1.1em;
+      box-shadow: 0 0 10px #00aaff44;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>A Weird Litany</h1>
+  <div class="litany-container">
+    <div class="figures-list" id="figures-list">
+      <!-- JavaScript will populate columns here -->
+    </div>
+    <div id="figure-box">more weird things to come...</div>
+  </div>
+<div style="margin-top: 40px; text-align: center;">
+      <a href="index.html" style="
+        display: inline-block;
+        padding: 12px 28px;
+        font-size: 1.2em;
+        background: #00aaff;
+        color: #fff;
+        border-radius: 8px;
+        text-decoration: none;
+        font-family: 'Libre Baskerville', serif;
+        font-weight: bold;
+        box-shadow: 0 0 8px #00aaff;
+        border: none;
+        transition: background 0.3s;
+      " onmouseover="this.style.background='#005577'" onmouseout="this.style.background='#00aaff'">
+        ← Return to Home
+      </a>
+    </div>
+  <script>
+    // List of figures with last names for sorting
+    const figures = [
+      { name: "H.P. Lovecraft", last: "Lovecraft", desc: "Master of cosmic horror and creator of the Cthulhu Mythos." },
+      { name: "Clark Ashton Smith", last: "Smith", desc: "Poet and author known for his lush, imaginative tales." },
+      { name: "C.L. Moore", last: "Moore", desc: "Pioneering female writer in the weird fiction genre." },
+      { name: "Arthur Machen", last: "Machen", desc: "Welsh author known for his supernatural and horror fiction." },
+      { name: "Algernon Blackwood", last: "Blackwood", desc: "Writer of ghost stories and supernatural fiction." },
+      { name: "William Hope Hodgson", last: "Hodgson", desc: "Author known for his weird and horror fiction." },
+      { name: "Oscar Wilde", last: "Wilde", desc: "Famous for his wit and flamboyant style, as well as his only novel, 'The Picture of Dorian Gray'." },
+      { name: "Samuel Beckett", last: "Beckett", desc: "Playwright and novelist known for his absurdist works, including 'Waiting for Godot'." },
+      { name: "Flann O'Brien", last: "O'Brien", desc: "Irish writer known for his humorous and experimental novels." }
+    ];
+
+    // Sort alphabetically by last name
+    figures.sort((a, b) => a.last.localeCompare(b.last));
+
+    // Split into two columns
+    const mid = Math.ceil(figures.length / 2);
+    const col1 = figures.slice(0, mid);
+    const col2 = figures.slice(mid);
+
+    // Render columns
+    function renderColumns() {
+      const listDiv = document.getElementById('figures-list');
+      listDiv.innerHTML = `
+        <div class="column" id="col1"></div>
+        <div class="column" id="col2"></div>
+      `;
+      col1.forEach(f =>
+        document.getElementById('col1').innerHTML += `<span class="figure-name" data-name="${f.name}">${f.name}</span>`
+      );
+      col2.forEach(f =>
+        document.getElementById('col2').innerHTML += `<span class="figure-name" data-name="${f.name}">${f.name}</span>`
+      );
+    }
+
+    renderColumns();
+
+    // Click handler
+    document.getElementById('figures-list').addEventListener('click', function(e) {
+  if (e.target.classList.contains('figure-name')) {
+    const selected = figures.find(f => f.name === e.target.dataset.name);
+    document.getElementById('figure-box').textContent = selected && selected.desc
+      ? selected.desc
+      : "more weird things to come...";
+  }
+});
+  </script>
+</body>
+</html>

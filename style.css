@@ -20,20 +20,3 @@ article {
   border-top: 1px solid #99ff66;
   padding-top: 1em;
 }
-
-#editor {
-  background-color: #111;
-  border: 1px solid #99ff66;
-  padding: 1em;
-  margin-bottom: 2em;
-  font-family: 'Libre Baskerville', serif;
-  color: #ccff99;
-}
-
-#editor input, #editor textarea {
-  width: 100%;
-  background-color: #222;
-  color: #99ff66;
-  border: 1px solid #99ff66;
-  font-family: 'Libre Baskerville', serif;
-}

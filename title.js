@@ -2,7 +2,7 @@ const titles = [
   "Scribblings from the Walls of Eryx",
   "Zothique Whispers",
   "Funguous Decay",
-  "Notes from the Antiquary",
+  "Gibbering from the Antiquary",
   "Eldritch Fragments"
 ];
 
